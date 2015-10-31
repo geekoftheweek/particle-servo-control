@@ -1,6 +1,3 @@
-// Run offline by default
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
 Servo myservo;
 
 int pos = 0;
