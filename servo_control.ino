@@ -1,5 +1,5 @@
-// Run offline by default
-SYSTEM_MODE(SEMI_AUTOMATIC);
+/// Uncomment the following line to be offline by default until D0 goes low
+//SYSTEM_MODE(SEMI_AUTOMATIC);
 
 Servo myservo;
 
