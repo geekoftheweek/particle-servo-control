@@ -12,7 +12,8 @@ So far, this code has powered these two robotics projects:
 
 ### servo-control.ino
 
-The firmware for the Spark Core.
+The firmware for the Spark Core.  By default, the connected servo will go to a
+new random position every 200-1000ms.
 
 ### web_servo_controller.html
 
