@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<body>
+  <P>Set Servo Position:<br><br>
+  <input type="range" name="degBox" id="degBoxId" min="0" max="180" step="1" value="90" onchange="setValue(this)">
+  <br><br>
+  <button onclick="toggleCrazy()">Toggle Random</button>
+  <br><br>
+  <P>Current Position: <span id="curPos"></span><br>
+
+  <script type="text/javascript">
+  var deviceID = "YOUR_DEVICE_ID_HERE";
+  var accessToken = "YOUR_ACCESS_TOKEN_HERE";
+  var setFunc = "setpos";
+  var getFunc = "getpos";
+
+  window.setInterval(function() {
+    requestURL = "https://api.spark.io/v1/devices/" + deviceID + "/" + getFunc + "/?access_token=" + accessToken;
+    $.getJSON(requestURL, function(json) {
+      document.getElementById("curPos").innerHTML = json.result;
+      document.getElementById("curPos").style.fontSize = "28px";
+      document.getElementById("degBoxId").value = parseInt(json.result);
+    });
+  }, 1000);
+
+  var setValue = function (obj) {
+    var newValue = document.getElementById("degBoxId").value;
+    sparkSetPos(newValue);
+  };
+
+  var toggleCrazy = function() {
+    var requestURL = "https://api.spark.io/v1/devices/" +deviceID + "/crazy/";
+    $.post( requestURL, { access_token: accessToken });
+  };
+  
+  var sparkSetPos = function (newValue) {
+    var requestURL = "https://api.spark.io/v1/devices/" +deviceID + "/" + setFunc + "/";
+    $.post( requestURL, { params: newValue, access_token: accessToken });
+  };
+  </script>
+</body>
+</html>
