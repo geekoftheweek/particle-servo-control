@@ -2,6 +2,12 @@
 
 This is firmware that lets a Spark Core (from http://particle.io) control a single servo, along with source code for two apps to interact with that firmware remotely, over the internet.
 
+So far, this code has powered these two robotics projects:
+
+- https://www.youtube.com/watch?v=vaxy4inpFsQ
+- https://www.youtube.com/watch?v=hKDVSJ7b8DQ
+
+
 ## The Files
 
 ### servo-control.ino
