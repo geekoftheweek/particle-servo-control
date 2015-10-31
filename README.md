@@ -15,9 +15,15 @@ So far, this code has powered these two robotics projects:
 The firmware for the Spark Core.  By default, the Core will start offline and
 the servo will go to a new random position every 200-1000ms.
 
-*IMPORTANT* To go online, short out the D0 pin by connecting it to the 3v3 pin
+#### IMPORTANT
+
+To go online, short out the D0 pin by connecting it to the 3v3 pin
 on the Core.  It might seem obvious, but if you don't put the Core online, you
 can't re-flash the firmware or communicate with it wirelessly.
+
+To put it another way, neither of the controller apps will work until you're
+online, so either get ready to short out D0 or remove the
+"SYSTEM_MODE(SEMI_AUTOMATIC)" line from the top of servo-control.ino
 
 ### web_servo_controller.html
 
